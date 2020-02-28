@@ -75,7 +75,7 @@ const routes = [
     icon: "tim-icons icon-puzzle-10",
     path: "/login",
     component: Login,
-    layout: "/admin"
+    layout: "/auth"
   },
 ];
 

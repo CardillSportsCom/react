@@ -6,6 +6,7 @@
   "dependencies": {
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
+    "compose": "^0.1.2",
     "firebase": "^7.9.2",
     "history": "4.7.2",
     "moment": "2.23.0",

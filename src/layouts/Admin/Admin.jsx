@@ -21,6 +21,8 @@ import PerfectScrollbar from "perfect-scrollbar";
 // react plugin for creating notifications over the dashboard
 import NotificationAlert from "react-notification-alert";
 
+import { withAuthorization } from '../../components/Session';
+
 // core components
 import AdminNavbar from "components/Navbars/AdminNavbar.jsx";
 import Footer from "components/Footer/Footer.jsx";
@@ -213,4 +215,5 @@ class Admin extends React.Component {
   }
 }
 
-export default Admin;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(Admin);
