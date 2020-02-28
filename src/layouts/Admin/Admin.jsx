@@ -28,7 +28,7 @@ import Sidebar from "components/Sidebar/Sidebar.jsx";
 
 import routes from "routes.js";
 
-import logo from "assets/img/react-logo.png";
+import logo from "assets/img/cslogo.jpeg";
 
 var ps;
 
@@ -186,8 +186,8 @@ class Admin extends React.Component {
           routes={routes}
           activeColor={this.state.activeColor}
           logo={{
-            outterLink: "https://www.creative-tim.com/",
-            text: "Creative Tim",
+            outterLink: "https://www.cardillsports.com/",
+            text: "Cardill Sports",
             imgSrc: logo
           }}
           closeSidebar={this.closeSidebar}

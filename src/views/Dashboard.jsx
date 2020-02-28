@@ -141,7 +141,10 @@ class Dashboard extends React.Component {
                   <Row>
                     <Col className="text-left" sm="6">
                       <h5 className="card-title">Wins</h5>
-                      <CardTitle tag="h2">32</CardTitle>
+                      <CardTitle tag="h2">
+                      <i className="tim-icons icon-trophy text-info" />{" "}
+                      32
+                   </CardTitle>
                     </Col>
                   </Row>
                 </CardHeader>
@@ -160,7 +163,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Points</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
+                    <i className="tim-icons icon-coins text-info" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
@@ -179,7 +182,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Assists</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
+                    <i className="tim-icons icon-heart-2 text-info" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
@@ -198,7 +201,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Rebounds</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
+                    <i className="tim-icons icon-trash-simple text-info" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
@@ -217,7 +220,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Steals</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
+                    <i className="tim-icons icon-lock-circle text-info" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
@@ -236,7 +239,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Blocks</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-success" />{" "}
+                    <i className="tim-icons icon-app text-success" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
@@ -256,7 +259,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Turnovers</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-warning" />{" "}
+                    <i className="tim-icons icon-alert-circle-exc text-warning" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
