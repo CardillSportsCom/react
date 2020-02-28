@@ -69,6 +69,14 @@ const routes = [
     component: RegularTables,
     layout: "/admin"
   },
+  {
+    name: "Login",
+    rtlName: "الجداول",
+    icon: "tim-icons icon-puzzle-10",
+    path: "/login",
+    component: Login,
+    layout: "/admin"
+  },
 ];
 
 export default routes;
