@@ -28,6 +28,7 @@ import Calendar from "views/Calendar.jsx";
 import Widgets from "views/Widgets.jsx";
 import Charts from "views/Charts.jsx";
 import Dashboard from "views/Dashboard.jsx";
+import LeagueLeaders from "views/LeagueLeaders.jsx";
 import Buttons from "views/components/Buttons.jsx";
 import SweetAlert from "views/components/SweetAlert.jsx";
 import Notifications from "views/components/Notifications.jsx";
@@ -50,6 +51,14 @@ const routes = [
     rtlName: "لوحة القيادة",
     icon: "tim-icons icon-chart-pie-36",
     component: Dashboard,
+    layout: "/admin"
+  },
+  {
+    path: "/leaders",
+    name: "League Leaders",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-chart-bar-32",
+    component: LeagueLeaders,
     layout: "/admin"
   },
   {
