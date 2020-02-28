@@ -36,6 +36,7 @@ import {
   Modal,
   UncontrolledTooltip
 } from "reactstrap";
+import { FirebaseContext } from "../Firebase";
 
 class AdminNavbar extends React.Component {
   constructor(props) {
@@ -85,6 +86,11 @@ class AdminNavbar extends React.Component {
       modalSearch: !this.state.modalSearch
     });
   };
+
+  logout = (firebase) => {
+    firebase.doSignOut();
+  };
+
   render() {
     return (
       <>
@@ -172,7 +178,7 @@ class AdminNavbar extends React.Component {
                     </NavLink>
                     <DropdownItem divider tag="li" />
                     <NavLink tag="li">
-                      <DropdownItem className="nav-item">Log out</DropdownItem>
+                      <DropdownItem className="nav-item" onClick={e => this.logout(this.props.firebase)}>Log out</DropdownItem>
                     </NavLink>
                   </DropdownMenu>
                 </UncontrolledDropdown>
