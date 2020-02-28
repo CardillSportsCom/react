@@ -23,7 +23,10 @@ import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 import SortingTable from "components/SortingTable/SortingTable.jsx";
 
 class RegularTables extends React.Component {
+  
   render() {
+    const token = localStorage.getItem("idToken");
+    
     return (
       <>
         <div className="content">

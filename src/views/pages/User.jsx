@@ -44,7 +44,7 @@ class User extends React.Component {
                     <Col className="pr-md-1" md="4">
                       <FormGroup>
                         <label>Email address</label>
-                        <Input placeholder="mike@email.com" type="email" />
+                        <Input defaultValue={"mike@email.com"} type="email" />
                       </FormGroup>
                     </Col>
                   </Row>
