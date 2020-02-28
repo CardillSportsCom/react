@@ -66,7 +66,7 @@ class Dashboard extends React.Component {
                 data-toggle="buttons"
               >
                 <Button
-                  color="info"
+                  color="primary"
                   id="0"
                   size="sm"
                   tag="label"
@@ -84,7 +84,7 @@ class Dashboard extends React.Component {
                   </span>
                 </Button>
                 <Button
-                  color="info"
+                  color="primary"
                   id="1"
                   size="sm"
                   tag="label"
