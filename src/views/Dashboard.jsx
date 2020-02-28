@@ -29,43 +29,19 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Label,
-  FormGroup,
-  Input,
-  Progress,
-  Table,
   Row,
   Col,
-  UncontrolledTooltip
 } from "reactstrap";
 
 // core components
 import {
   chartExample1,
-  chartExample2,
-  chartExample3,
-  chartExample4
+  orangeChart,
+  greenChart,
+  purpleChart,
+  blueChart
 } from "variables/charts.jsx";
-
-var mapData = {
-  AU: 760,
-  BR: 550,
-  CA: 120,
-  DE: 1300,
-  FR: 540,
-  GB: 690,
-  GE: 200,
-  IN: 200,
-  RO: 600,
-  RU: 300,
-  US: 2920
-};
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -142,7 +118,7 @@ class Dashboard extends React.Component {
                     <Col className="text-left" sm="6">
                       <h5 className="card-title">Wins</h5>
                       <CardTitle tag="h2">
-                      <i className="tim-icons icon-trophy text-info" />{" "}
+                      <i className="tim-icons icon-trophy text-primary" />{" "}
                       32
                    </CardTitle>
                     </Col>
@@ -152,7 +128,7 @@ class Dashboard extends React.Component {
                   <div className="chart-area">
                     <Line
                       data={chartExample1[this.state.bigChartData]}
-                      options={chartExample1.options}
+                      options={orangeChart.options}
                     />
                   </div>
                 </CardBody>
@@ -170,8 +146,8 @@ class Dashboard extends React.Component {
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
+                      data={blueChart.data}
+                      options={blueChart.options}
                     />
                   </div>
                 </CardBody>
@@ -182,15 +158,15 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Assists</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-heart-2 text-info" />{" "}
+                    <i className="tim-icons icon-heart-2 text-success" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
+                      data={greenChart.data}
+                      options={greenChart.options}
                     />
                   </div>
                 </CardBody>
@@ -201,15 +177,15 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <h5 className="card-title">Rebounds</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-trash-simple text-info" />{" "}
+                    <i className="tim-icons icon-trash-simple text-warning" />{" "}
                     763,215
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
+                      data={purpleChart.data}
+                      options={purpleChart.options}
                     />
                   </div>
                 </CardBody>
@@ -227,8 +203,8 @@ class Dashboard extends React.Component {
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample2.data}
-                      options={chartExample1.options}
+                      data={blueChart.data}
+                      options={blueChart.options}
                     />
                   </div>
                 </CardBody>
@@ -246,8 +222,8 @@ class Dashboard extends React.Component {
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
+                      data={greenChart.data}
+                      options={greenChart.options}
                     />
                   </div>
                 </CardBody>
@@ -266,8 +242,8 @@ class Dashboard extends React.Component {
                 <CardBody>
                   <div className="chart-area">
                     <Line
-                      data={chartExample2.data}
-                      options={chartExample3.options}
+                      data={purpleChart.data}
+                      options={purpleChart.options}
                     />
                   </div>
                 </CardBody>
