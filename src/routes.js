@@ -217,51 +217,6 @@ const routes = [
   },
   {
     collapse: true,
-    name: "Forms",
-    rtlName: "إستمارات",
-    icon: "tim-icons icon-notes",
-    state: "formsCollapse",
-    views: [
-      {
-        path: "/regular-forms",
-        name: "Regular Forms",
-        rtlName: "أشكال عادية",
-        mini: "RF",
-        rtlMini: "صو",
-        component: RegularForms,
-        layout: "/admin"
-      },
-      {
-        path: "/extended-forms",
-        name: "Extended Forms",
-        rtlName: "نماذج موسعة",
-        mini: "EF",
-        rtlMini: "هوو",
-        component: ExtendedForms,
-        layout: "/admin"
-      },
-      {
-        path: "/validation-forms",
-        name: "Validation Forms",
-        rtlName: "نماذج التحقق من الصحة",
-        mini: "VF",
-        rtlMini: "تو",
-        component: ValidationForms,
-        layout: "/admin"
-      },
-      {
-        path: "/wizard",
-        name: "Wizard",
-        rtlName: "ساحر",
-        mini: "W",
-        rtlMini: "ث",
-        component: Wizard,
-        layout: "/admin"
-      }
-    ]
-  },
-  {
-    collapse: true,
     name: "Tables",
     rtlName: "الجداول",
     icon: "tim-icons icon-puzzle-10",
@@ -296,66 +251,6 @@ const routes = [
       }
     ]
   },
-  {
-    collapse: true,
-    name: "Maps",
-    rtlName: "خرائط",
-    icon: "tim-icons icon-pin",
-    state: "mapsCollapse",
-    views: [
-      {
-        path: "/google-maps",
-        name: "Google Maps",
-        rtlName: "خرائط جوجل",
-        mini: "GM",
-        rtlMini: "زم",
-        component: GoogleMaps,
-        layout: "/admin"
-      },
-      {
-        path: "/full-screen-map",
-        name: "Full Screen Map",
-        rtlName: "خريطة كاملة الشاشة",
-        mini: "FSM",
-        rtlMini: "ووم",
-        component: FullScreenMap,
-        layout: "/admin"
-      },
-      {
-        path: "/vector-map",
-        name: "Vector Map",
-        rtlName: "خريطة المتجه",
-        mini: "VM",
-        rtlMini: "تم",
-        component: VectorMap,
-        layout: "/admin"
-      }
-    ]
-  },
-  {
-    path: "/widgets",
-    name: "Widgets",
-    rtlName: "الحاجيات",
-    icon: "tim-icons icon-settings",
-    component: Widgets,
-    layout: "/admin"
-  },
-  {
-    path: "/charts",
-    name: "Charts",
-    rtlName: "الرسوم البيانية",
-    icon: "tim-icons icon-chart-bar-32",
-    component: Charts,
-    layout: "/admin"
-  },
-  {
-    path: "/calendar",
-    name: "Calendar",
-    rtlName: "التقويم",
-    icon: "tim-icons icon-time-alarm",
-    component: Calendar,
-    layout: "/admin"
-  }
 ];
 
 export default routes;
