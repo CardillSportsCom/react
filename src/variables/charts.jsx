@@ -330,7 +330,7 @@ let purpleChart = {
 
     gradientStroke.addColorStop(1, "rgba(140, 29, 248,0.2)");
     gradientStroke.addColorStop(0.4, "rgba(140, 29, 248,0.0)");
-    gradientStroke.addColorStop(0, "rgba(140, 29, 248,0)"); //green colors
+    gradientStroke.addColorStop(0, "rgba(140, 29, 248,0)"); //purple colors
 
     return {
       labels: ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
