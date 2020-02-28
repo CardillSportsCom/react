@@ -68,6 +68,14 @@ const routes = [
     path: "/regular-tables",
     component: RegularTables,
     layout: "/admin"
+  },
+  {
+    name: "Profile",
+    rtlName: "الجداول",
+    icon: "tim-icons icon-user-run",
+    path: "/user-profile",
+    component: User,
+    layout: "/admin"
   }
 ];
 
