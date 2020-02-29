@@ -18,7 +18,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import AuthNavbar from "components/Navbars/AuthNavbar.jsx";
-import Footer from "components/Footer/Footer.jsx";
 
 import routes from "authRoutes.js";
 

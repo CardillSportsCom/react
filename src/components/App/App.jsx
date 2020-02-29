@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import AuthLayout from "layouts/Auth/Auth.jsx";
 import AdminLayout from "layouts/Admin/Admin.jsx";

@@ -18,9 +18,7 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
-// react plugin for creating vector maps
-import { VectorMap } from "react-jvectormap";
+import { Line } from "react-chartjs-2";
 
 // reactstrap components
 import {

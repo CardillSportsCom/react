@@ -14,7 +14,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState } from "react";
 
 // reactstrap components
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
@@ -22,11 +22,84 @@ import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 // core components
 import SortingTable from "components/SortingTable/SortingTable.jsx";
 
+const API_URL = "https://api-cardillsports-st.herokuapp.com";
+
 class RegularTables extends React.Component {
-  
-  render() {
+  componentDidMount() {
     const token = localStorage.getItem("idToken");
-    
+
+    const [data, setData] = useState(null);
+    const [tableData, setTableData] = useState(null);
+
+    fetch(API_URL + "/stat/score/5ac6aaefe8da8276a88ffc07", {
+      headers: new Headers({
+        Authorization: token
+      })
+    })
+      .then(response => response.json())
+      .then(res => {
+        setData(res);
+
+        const tableData = [
+          {
+            data: [
+              { text: "Anuisa Rice" },
+              { text: "Nigddder" },
+              { text: "Oud-Turnhout" },
+              { className: "text-center", text: "$36,738" }
+            ]
+          }
+        ];
+
+        setTableData(tableData);
+      });
+  }
+
+  transform(data) {
+    var result = [];
+
+    if (data == null) return result;
+
+    // const gameDays = data["gameDays"];
+    // const lastGameDay = gameDays[0];
+    // const gameDayTotals = lastGameDay["gameDayStatTotals"];
+
+    // for (var i in gameDayTotals) {
+    //   const playerTotal = gameDayTotals[i];
+
+    //   var tableRow = {};
+    //   var tableRowData = [];
+
+    //   tableRowData.push({ text: "Vithushan" });
+    //   tableRowData.push({ text: "Vithushan" });
+    //   tableRowData.push({ text: "Vithushan" });
+    //   tableRowData.push({ text: "Vithushan" });
+    //   tableRowData.push({ text: "Vithushan" });
+
+    //   tableRow["data"] = tableRowData;
+
+    //   tableRowData.push();
+
+    //   result.push(tableRow);
+    // }
+
+    console.log(result);
+    return [
+      {
+        data: [
+          { text: "Vithushan Rice" },
+          { text: "Nigddder" },
+          { text: "Oud-Turnhout" },
+          { className: "text-center", text: "$36,738" }
+        ]
+      }
+    ];
+  }
+
+  render() {
+    console.log(this.state.data);
+    var tableData = this.transform(this.state.data);
+
     return (
       <>
         <div className="content">
@@ -48,64 +121,7 @@ class RegularTables extends React.Component {
                       { text: "Blocks" },
                       { text: "Turnovers" }
                     ]}
-                    tbody={[
-                      {
-                        data: [
-                          { text: "Dakota Rice" },
-                          { text: "Niger" },
-                          { text: "Oud-Turnhout" },
-                          { className: "text-center", text: "$36,738" }
-                        ]
-                      },
-                      {
-                        data: [
-                          { text: "Minerva Hooper" },
-                          { text: "Curaçao" },
-                          { text: "Sinaai-Waas" },
-                          { className: "text-center", text: "$23,789" }
-                        ]
-                      },
-                      {
-                        data: [
-                          { text: "Sage Rodriguez" },
-                          { text: "Netherlands" },
-                          { text: "Baileux" },
-                          { className: "text-center", text: "$56,142" }
-                        ]
-                      },
-                      {
-                        data: [
-                          { text: "Philip Chaney" },
-                          { text: "Korea, South" },
-                          { text: "Overland Park" },
-                          { className: "text-center", text: "$38,735" }
-                        ]
-                      },
-                      {
-                        data: [
-                          { text: "Doris Greene" },
-                          { text: "Malawi" },
-                          { text: "Feldkirchen in Kärnten" },
-                          { className: "text-center", text: "$63,542" }
-                        ]
-                      },
-                      {
-                        data: [
-                          { text: "Mason Porter" },
-                          { text: "Chile" },
-                          { text: "Gloucester" },
-                          { className: "text-center", text: "$78,615" }
-                        ]
-                      },
-                      {
-                        data: [
-                          { text: "Jon Porter" },
-                          { text: "Portugal" },
-                          { text: "Gloucester" },
-                          { className: "text-center", text: "$98,615" }
-                        ]
-                      }
-                    ]}
+                    tbody={this.state.tableData}
                   />
                 </CardBody>
               </Card>

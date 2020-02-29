@@ -27,7 +27,6 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   Input,
-  InputGroup,
   NavbarBrand,
   Navbar,
   NavLink,
@@ -36,7 +35,6 @@ import {
   Modal,
   UncontrolledTooltip
 } from "reactstrap";
-import { FirebaseContext } from "../Firebase";
 
 class AdminNavbar extends React.Component {
   constructor(props) {
@@ -171,7 +169,7 @@ class AdminNavbar extends React.Component {
                   </DropdownToggle>
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
-                      <DropdownItem className="nav-item" onClick={e => this.logout(this.props.firebase)}>Log out</DropdownItem>
+                      <DropdownItem className="nav-item" onClick={() => this.logout(this.props.firebase)}>Log out</DropdownItem>
                     </NavLink>
                   </DropdownMenu>
                 </UncontrolledDropdown>
