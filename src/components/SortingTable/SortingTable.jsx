@@ -32,6 +32,11 @@ class SortingTable extends React.Component {
       }
     };
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ bodyData: nextProps.tbody });  
+  }
+
   sortTable = key => {
     let { bodyData, column } = this.state;
     let order = "";
