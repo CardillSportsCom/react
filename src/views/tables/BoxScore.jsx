@@ -8,24 +8,13 @@ import SortingTable from "components/SortingTable/SortingTable.jsx";
 
 import { ClapSpinner } from "react-spinners-kit";
 
-const BoxScore = authUser => {
+const BoxScore = () => {
   const API_URL = "https://api-cardillsports-st.herokuapp.com";
   const [tableData, setTableData] = useState([]);
   const [gameIndex, setGameIndex] = useState(0);
   const [errors, setErrors] = useState(null);
 
   const token = localStorage.getItem("idToken");
-
-  const tableData2 = [
-    {
-      data: [
-        { text: "Anuisa Rice" },
-        { text: "Nigddder" },
-        { text: "Oud-Turnhout" },
-        { className: "text-center", text: "$36,738" }
-      ]
-    }
-  ];
 
   function transform(data, index) {
     var result = [];

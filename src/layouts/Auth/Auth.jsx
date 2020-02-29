@@ -25,7 +25,6 @@ class Pages extends React.Component {
   getRoutes = routes => {
     return routes.map((prop, key) => {
       if (prop.layout === "/auth") {
-        console.log(prop.path);
         return (
           
           <Route

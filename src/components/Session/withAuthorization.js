@@ -26,6 +26,7 @@ const withAuthorization = condition => Component => {
             }).then(function(response) {
               response.json().then(data => {
                 localStorage.setItem("idToken", data["id_token"]);
+                localStorage.setItem("playerId", data.player.id);
               });
               
               return "";

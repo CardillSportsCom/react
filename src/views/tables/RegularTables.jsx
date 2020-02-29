@@ -83,7 +83,6 @@ class RegularTables extends React.Component {
     //   result.push(tableRow);
     // }
 
-    console.log(result);
     return [
       {
         data: [
@@ -97,7 +96,6 @@ class RegularTables extends React.Component {
   }
 
   render() {
-    console.log(this.state.data);
     var tableData = this.transform(this.state.data);
 
     return (
