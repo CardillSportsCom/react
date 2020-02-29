@@ -33,6 +33,7 @@ const User = () => {
   const [errors, setErrors] = useState(null);
 
   const token = localStorage.getItem("idToken");
+  console.log(token);
   const playerId = localStorage.getItem("playerId");
 
   async function fetchData() {

@@ -27,6 +27,7 @@ const withAuthorization = condition => Component => {
               response.json().then(data => {
                 localStorage.setItem("idToken", data["id_token"]);
                 localStorage.setItem("playerId", data.player.id);
+                localStorage.setItem("playerImage", data.player.imageUri);
               });
               
               return "";

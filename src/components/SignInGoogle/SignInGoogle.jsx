@@ -1,39 +1,49 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
-import { withFirebase } from '../Firebase';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { compose } from "recompose";
+import { withFirebase } from "../Firebase";
+import { Card, CardHeader, CardBody } from "reactstrap";
 
 class SignInGoogleBase extends Component {
-    constructor(props) {
-      super(props);
-      this.state = { error: null };
-    }
-    onSubmit = event => {
-      this.props.firebase
-        .doSignInWithGoogle()
-        .then(() => {
-          this.setState({ error: null });
-          this.props.history.push("/admin/dashboard/");
-        })
-        .catch(error => {
-          this.setState({ error });
-        });
-      event.preventDefault();
-    };
-    render() {
-      const { error } = this.state;
-      return (
-        <form onSubmit={this.onSubmit}>
-          <button type="submit">Sign In with Google</button>
-          {error && <p>{error.message}</p>}
-        </form>
-      );
-    }
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
   }
-  
-  const SignInGoogle = compose(
-    withRouter,
-    withFirebase,
-  )(SignInGoogleBase);
+  onSubmit = event => {
+    this.props.firebase
+      .doSignInWithGoogle()
+      .then(() => {
+        this.setState({ error: null });
+        this.props.history.push("/admin/dashboard/");
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+    event.preventDefault();
+  };
+  render() {
+    const { error } = this.state;
+    return (
+      <div className="card mb-3">
+        <div class="card bg-dark text-white">
+          <img alt="cardill header" src={require("assets/img/header.png")} />
+          <div class="card-img-overlay center">
+            <form onSubmit={this.onSubmit}>
+              <button type="submit">
+                <img
+                  alt="cardill header"
+                  src={require("assets/img/google.png")}
+                />
+              </button>
+              {error && <p>{error.message}</p>}
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
-  export default SignInGoogle;
+const SignInGoogle = compose(withRouter, withFirebase)(SignInGoogleBase);
+
+export default SignInGoogle;
