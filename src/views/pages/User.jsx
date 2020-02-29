@@ -55,27 +55,10 @@ const User = () => {
   const profileCard = (
     <CardBody>
       <Row>
-        <Col className="pr-md-1" md="6">
-          <FormGroup>
-            <label>Email address</label>
-            <Input defaultValue={userData.email} type="email" />
-          </FormGroup>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="pr-md-1" md="6">
-          <FormGroup>
-            <label>First Name</label>
-            <Input defaultValue={userData.firstName} type="text" />
-          </FormGroup>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="pr-md-1" md="6">
-          <FormGroup>
-            <label>Last Name</label>
-            <Input defaultValue={userData.lastName} type="text" />
-          </FormGroup>
+        <Col className="pr-md-1">
+          <img alt="..." className="avatar" src={userData.imageUri} />
+          <h1>{userData.firstName} {userData.lastName}</h1>
+          <h3>{userData.email}</h3>
         </Col>
       </Row>
     </CardBody>
@@ -85,10 +68,7 @@ const User = () => {
     <>
       <div className="content">
         <Row>
-          <Col md="6">
-            <Card>{userData !== null ? profileCard : null}</Card>
-          </Col>
-          <Col md="6">
+          <Col xs="12">
             <Card className="card-user">
               <CardBody>
                 <CardText />
@@ -97,11 +77,7 @@ const User = () => {
                   <div className="block block-two" />
                   <div className="block block-three" />
                   <div className="block block-four" />
-                  <img
-                    alt="..."
-                    className="avatar"
-                    src={require("assets/img/emilyz.jpg")}
-                  />
+                  {userData !== null ? profileCard : null}
                 </div>
               </CardBody>
             </Card>

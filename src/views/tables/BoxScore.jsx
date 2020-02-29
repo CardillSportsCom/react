@@ -91,7 +91,6 @@ const BoxScore = () => {
     const gameDays = tableData["gameDays"];
     const gameDay = gameDays[gameIndex];
     
-    console.log(gameDay);
     return gameDay.gameDate;
 
   }
