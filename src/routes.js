@@ -41,7 +41,7 @@ const routes = [
     name: "Box Score",
     rtlName: "الجداول",
     icon: "tim-icons icon-puzzle-10",
-    path: "/regular-tables",
+    path: "/box-score",
     component: BoxScore,
     layout: "/admin"
   },

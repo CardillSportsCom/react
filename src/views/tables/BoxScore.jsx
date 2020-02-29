@@ -6,6 +6,8 @@ import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 // core components
 import SortingTable from "components/SortingTable/SortingTable.jsx";
 
+import { ClapSpinner } from "react-spinners-kit";
+
 const BoxScore = authUser => {
   const API_URL = "https://api-cardillsports-st.herokuapp.com";
   const [tableData, setTableData] = useState([]);
@@ -92,6 +94,10 @@ const BoxScore = authUser => {
     />
   );
 
+  const spinner = (
+    <ClapSpinner size={30} frontColor="#f88c1d" />
+  );
+
   return (
     <>
       <div className="content">
@@ -101,7 +107,7 @@ const BoxScore = authUser => {
               <CardHeader>
                 <CardTitle tag="h4">Box Score</CardTitle>
               </CardHeader>
-              <CardBody>{tableData.length !== 0 ? table : null}</CardBody>
+              <CardBody>{tableData.length !== 0 ? table : spinner}</CardBody>
             </Card>
           </Col>
         </Row>
