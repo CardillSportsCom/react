@@ -39,7 +39,8 @@ import {
   greenChart,
   purpleChart,
   blueChart,
-  pointsChartData
+  pointsChartData,
+  assistsChartData
 } from "variables/charts.jsx";
 
 const Dashboard = () => {
@@ -71,34 +72,46 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-const months =["JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
-"JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  const months = [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC"
+  ];
 
-  function getPointsData() {
+  function getDataForStat(stat) {
     if (statsData.length === 0) return [];
 
-    var pointsData = statsData.cumulativeStats.points;
+    var dataForStat = statsData.cumulativeStats[stat];
 
     var x = [];
     var y = [];
 
-    for (let i = 0; i < pointsData.length; i++) {
-      var dateObj = new Date(pointsData[i].date);
+    for (let i = 0; i < dataForStat.length; i++) {
+      var dateObj = new Date(dataForStat[i].date);
       var dateString = months[dateObj.getMonth()] + " " + dateObj.getDate();
-      
+
       x.push(dateString);
-      //x.push(pointsData[i].date);
-      y.push(pointsData[i].value);
+      y.push(dataForStat[i].value);
     }
 
     return {
       x: x,
       y: y,
-      total: y[y.length -1]
+      total: y[y.length - 1]
     };
   }
 
-  const pointsData = getPointsData();
+  const pointsData = getDataForStat("points");
+  const assistsData = getDataForStat("assists");
 
   return (
     <>
@@ -183,18 +196,14 @@ const months =["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
               <CardHeader>
                 <h5 className="card-title">Points</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-coins text-info" /> {pointsData.total}
+                  <i className="tim-icons icon-coins text-info" />{" "}
+                  {pointsData.total}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
                   <Line
-                    data={
-                      pointsChartData(
-                        pointsData.x,
-                        pointsData.y
-                      ).data
-                    }
+                    data={pointsChartData(pointsData.x, pointsData.y).data}
                     options={blueChart.options}
                   />
                 </div>
@@ -206,12 +215,16 @@ const months =["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
               <CardHeader>
                 <h5 className="card-title">Assists</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-heart-2 text-success" /> 763,215
+                  <i className="tim-icons icon-heart-2 text-success" />{" "}
+                  {assistsData.total}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line data={greenChart.data} options={greenChart.options} />
+                  <Line
+                    data={assistsChartData(assistsData.x, assistsData.y).data}
+                    options={greenChart.options}
+                  />
                 </div>
               </CardBody>
             </Card>

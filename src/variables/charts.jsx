@@ -248,7 +248,45 @@ let pointsChartData = (xValues, yValues) => {
     },
     options: chart_1_2_3_options
   };
-}
+};
+
+let assistsChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+  
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+  
+      gradientStroke.addColorStop(1, "rgba(29, 248, 140,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(29, 248, 140,0.0)");
+      gradientStroke.addColorStop(0, "rgba(29, 248, 140,0)"); //green colors
+  
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Data",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#1df88c",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#1df88c",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#1df88c",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+    options: chart_1_2_3_options
+  };
+};
 
 let blueChart = {
   data: canvas => {
@@ -401,5 +439,6 @@ module.exports = {
   orangeChart,
   greenChart,
   purpleChart,
-  pointsChartData
+  pointsChartData,
+  assistsChartData
 };
