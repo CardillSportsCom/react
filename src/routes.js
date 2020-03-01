@@ -14,10 +14,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import RegularTables from "views/tables/RegularTables.jsx";
-import Dashboard from "views/Dashboard.jsx";
-import LeagueLeaders from "views/LeagueLeaders.jsx";
-import User from "views/pages/User.jsx";
+import Dashboard from "./views/Dashboard.jsx";
+import LeagueLeaders from "./views/LeagueLeaders.jsx";
+import User from "./views/pages/User.jsx";
 import BoxScore from "./views/tables/BoxScore";
 
 const routes = [

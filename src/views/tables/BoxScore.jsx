@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardBody, CardTitle, Row, Col } from "reactstrap";
 
 // core components
-import SortingTable from "components/SortingTable/SortingTable.jsx";
+import SortingTable from "./../../components/SortingTable/SortingTable.jsx";
 
 import { ClapSpinner } from "react-spinners-kit";
 

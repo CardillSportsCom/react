@@ -26,13 +26,13 @@ class SignInGoogleBase extends Component {
     return (
       <div className="card mb-3">
         <div className="card bg-dark text-white">
-          <img alt="cardill header" src={require("assets/img/header.png")} />
+          <img alt="cardill header" src={require("./../../assets/img/header.png")} />
           <div className="card-img-overlay center">
             <form onSubmit={this.onSubmit}>
               <button type="submit">
                 <img
                   alt="cardill header"
-                  src={require("assets/img/google.png")}
+                  src={require("./../../assets/img/google.png")}
                 />
               </button>
               {error && <p>{error.message}</p>}

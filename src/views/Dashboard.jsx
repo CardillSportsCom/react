@@ -46,7 +46,7 @@ import {
   stealsChartData,
   blocksChartData,
   turnoversChartData
-} from "variables/charts.jsx";
+} from "./../variables/charts.jsx";
 
 const Dashboard = () => {
   const shouldHideSeasonToggle = true; // remove this when we have seasonal stats

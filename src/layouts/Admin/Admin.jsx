@@ -21,15 +21,15 @@ import PerfectScrollbar from "perfect-scrollbar";
 // react plugin for creating notifications over the dashboard
 import NotificationAlert from "react-notification-alert";
 
-import { withAuthorization } from '../../components/Session';
+import { withAuthorization } from './../../components/Session';
 
 // core components
-import AdminNavbar from "components/Navbars/AdminNavbar.jsx";
-import Sidebar from "components/Sidebar/Sidebar.jsx";
+import AdminNavbar from "./../../components/Navbars/AdminNavbar.jsx";
+import Sidebar from "./../../components/Sidebar/Sidebar.jsx";
 
-import routes from "routes.js";
+import routes from "./../../routes.js";
 
-import logo from "assets/img/cslogo.jpeg";
+import logo from "./../../assets/img/cslogo.jpeg";
 
 var ps;
 

@@ -17,9 +17,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import AuthNavbar from "components/Navbars/AuthNavbar.jsx";
+import AuthNavbar from "./../../components/Navbars/AuthNavbar.jsx";
 
-import routes from "authRoutes.js";
+import routes from "./../../authRoutes.js";
 
 class Pages extends React.Component {
   getRoutes = routes => {

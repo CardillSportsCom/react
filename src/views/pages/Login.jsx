@@ -15,7 +15,7 @@
 
 */
 import React from 'react';
-import AuthNavbar from "components/Navbars/AuthNavbar.jsx";
+import AuthNavbar from "./../../components/Navbars/AuthNavbar.jsx";
 
 // reactstrap components
 import {

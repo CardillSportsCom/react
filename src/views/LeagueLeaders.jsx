@@ -115,7 +115,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -127,7 +127,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -139,7 +139,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -151,7 +151,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -163,7 +163,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
@@ -192,7 +192,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -204,7 +204,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -216,7 +216,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -228,7 +228,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -240,7 +240,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
@@ -269,7 +269,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -281,7 +281,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -293,7 +293,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -305,7 +305,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -317,7 +317,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
@@ -346,7 +346,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -358,7 +358,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -370,7 +370,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -382,7 +382,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -394,7 +394,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
@@ -423,7 +423,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -435,7 +435,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -447,7 +447,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -459,7 +459,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -471,7 +471,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
@@ -500,7 +500,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -512,7 +512,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -524,7 +524,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -536,7 +536,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -548,7 +548,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
@@ -577,7 +577,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/US.png")}
+                                  src={require("./../assets/img/US.png")}
                                 />
                               </div>
                             </td>
@@ -589,7 +589,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/DE.png")}
+                                  src={require("./../assets/img/DE.png")}
                                 />
                               </div>
                             </td>
@@ -601,7 +601,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/AU.png")}
+                                  src={require("./../assets/img/AU.png")}
                                 />
                               </div>
                             </td>
@@ -613,7 +613,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/GB.png")}
+                                  src={require("./../assets/img/GB.png")}
                                 />
                               </div>
                             </td>
@@ -625,7 +625,7 @@ class LeagueLeaders extends React.Component {
                               <div className="flag">
                                 <img
                                   alt="..."
-                                  src={require("assets/img/RO.png")}
+                                  src={require("./../assets/img/RO.png")}
                                 />
                               </div>
                             </td>
