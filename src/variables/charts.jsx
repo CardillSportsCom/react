@@ -44,12 +44,7 @@ let chart_1_2_3_options = {
           color: "rgba(29,140,248,0.0)",
           zeroLineColor: "transparent"
         },
-        ticks: {
-          suggestedMin: 60,
-          suggestedMax: 125,
-          padding: 20,
-          fontColor: "#9a9a9a"
-        }
+ 
       }
     ],
     xAxes: [
@@ -214,6 +209,47 @@ let chartExample1 = {
 // #########################################
 // // // used inside src/views/Dashboard.jsx
 // #########################################
+let gameDays = ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+let points = [80, 100, 70, 80, 120, 80];
+
+let pointsChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+  
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+  
+      gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+      gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+  
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Data",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#1f8ef1",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#1f8ef1",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#1f8ef1",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+    options: chart_1_2_3_options
+  };
+}
+
 let blueChart = {
   data: canvas => {
     let ctx = canvas.getContext("2d");
@@ -225,7 +261,7 @@ let blueChart = {
     gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
     return {
-      labels: ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+      labels: gameDays,
       datasets: [
         {
           label: "Data",
@@ -242,7 +278,7 @@ let blueChart = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: [80, 100, 70, 80, 120, 80]
+          data: points
         }
       ]
     };
@@ -364,5 +400,6 @@ module.exports = {
   blueChart, // in src/views/Dashboard.jsx,
   orangeChart,
   greenChart,
-  purpleChart
+  purpleChart,
+  pointsChartData
 };
