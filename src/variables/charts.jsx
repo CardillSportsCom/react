@@ -43,8 +43,7 @@ let chart_1_2_3_options = {
           drawBorder: false,
           color: "rgba(29,140,248,0.0)",
           zeroLineColor: "transparent"
-        },
- 
+        }
       }
     ],
     xAxes: [
@@ -209,6 +208,46 @@ let chartExample1 = {
 // #########################################
 // // // used inside src/views/Dashboard.jsx
 // #########################################
+
+let winsChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke.addColorStop(1, "rgba(248,140,29,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(248,140,29,0.0)");
+      gradientStroke.addColorStop(0, "rgba(248,140,29,0)"); //orange colors
+
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Wins",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#f88c1d",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#f88c1d",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#f88c1d",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+
+    options: chart_1_2_3_options
+  };
+};
+
 let gameDays = ["JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 let points = [80, 100, 70, 80, 120, 80];
 
@@ -216,18 +255,18 @@ let pointsChartData = (xValues, yValues) => {
   return {
     data: canvas => {
       let ctx = canvas.getContext("2d");
-  
+
       let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-  
+
       gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
       gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
       gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
-  
+
       return {
         labels: xValues,
         datasets: [
           {
-            label: "Data",
+            label: "Points",
             fill: true,
             backgroundColor: gradientStroke,
             borderColor: "#1f8ef1",
@@ -254,18 +293,18 @@ let assistsChartData = (xValues, yValues) => {
   return {
     data: canvas => {
       let ctx = canvas.getContext("2d");
-  
+
       let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-  
+
       gradientStroke.addColorStop(1, "rgba(29, 248, 140,0.2)");
       gradientStroke.addColorStop(0.4, "rgba(29, 248, 140,0.0)");
       gradientStroke.addColorStop(0, "rgba(29, 248, 140,0)"); //green colors
-  
+
       return {
         labels: xValues,
         datasets: [
           {
-            label: "Data",
+            label: "Assists",
             fill: true,
             backgroundColor: gradientStroke,
             borderColor: "#1df88c",
@@ -275,6 +314,158 @@ let assistsChartData = (xValues, yValues) => {
             pointBackgroundColor: "#1df88c",
             pointBorderColor: "rgba(255,255,255,0)",
             pointHoverBackgroundColor: "#1df88c",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+    options: chart_1_2_3_options
+  };
+};
+
+let reboundsChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke.addColorStop(1, "rgba(140, 29, 248,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(140, 29, 248,0.0)");
+      gradientStroke.addColorStop(0, "rgba(140, 29, 248,0)"); //purple colors
+
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Rebounds",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#8c1df8",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#8c1df8",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#8c1df8",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+    options: chart_1_2_3_options
+  };
+};
+
+let stealsChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+      gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Steal",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#1f8ef1",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#1f8ef1",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#1f8ef1",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+    options: chart_1_2_3_options
+  };
+};
+
+let blocksChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke.addColorStop(1, "rgba(29, 248, 140,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(29, 248, 140,0.0)");
+      gradientStroke.addColorStop(0, "rgba(29, 248, 140,0)"); //green colors
+
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Blocks",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#1df88c",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#1df88c",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#1df88c",
+            pointBorderWidth: 20,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 15,
+            pointRadius: 4,
+            data: yValues
+          }
+        ]
+      };
+    },
+    options: chart_1_2_3_options
+  };
+};
+
+let turnoversChartData = (xValues, yValues) => {
+  return {
+    data: canvas => {
+      let ctx = canvas.getContext("2d");
+
+      let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+      gradientStroke.addColorStop(1, "rgba(140, 29, 248,0.2)");
+      gradientStroke.addColorStop(0.4, "rgba(140, 29, 248,0.0)");
+      gradientStroke.addColorStop(0, "rgba(140, 29, 248,0)"); //purple colors
+
+      return {
+        labels: xValues,
+        datasets: [
+          {
+            label: "Turnovers",
+            fill: true,
+            backgroundColor: gradientStroke,
+            borderColor: "#8c1df8",
+            borderWidth: 2,
+            borderDash: [],
+            borderDashOffset: 0.0,
+            pointBackgroundColor: "#8c1df8",
+            pointBorderColor: "rgba(255,255,255,0)",
+            pointHoverBackgroundColor: "#8c1df8",
             pointBorderWidth: 20,
             pointHoverRadius: 4,
             pointHoverBorderWidth: 15,
@@ -432,13 +623,17 @@ let purpleChart = {
   options: chart_1_2_3_options
 };
 
-
 module.exports = {
   chartExample1, // in src/views/Dashboard.jsx
   blueChart, // in src/views/Dashboard.jsx,
   orangeChart,
   greenChart,
   purpleChart,
+  winsChartData,
   pointsChartData,
-  assistsChartData
+  assistsChartData,
+  reboundsChartData,
+  stealsChartData,
+  blocksChartData,
+  turnoversChartData
 };

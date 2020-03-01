@@ -39,18 +39,22 @@ import {
   greenChart,
   purpleChart,
   blueChart,
+  winsChartData,
   pointsChartData,
-  assistsChartData
+  assistsChartData,
+  reboundsChartData,
+  stealsChartData,
+  blocksChartData,
+  turnoversChartData
 } from "variables/charts.jsx";
 
 const Dashboard = () => {
+  const shouldHideSeasonToggle = true; // remove this when we have seasonal stats
+
   const API_URL = "https://api-cardillsports-st.herokuapp.com";
   const [statsData, setStatsData] = useState([]);
   const [bigChartData, setBigChartData] = useState("data1");
   const [errors, setErrors] = useState(null);
-
-  const foo = [];
-  const bar = [];
 
   const token = localStorage.getItem("idToken");
   const playerId = localStorage.getItem("playerId");
@@ -110,64 +114,69 @@ const Dashboard = () => {
     };
   }
 
+  const winsData = getDataForStat("wins");
   const pointsData = getDataForStat("points");
   const assistsData = getDataForStat("assists");
+  const reboundsData = getDataForStat("rebounds");
+  const stealsData = getDataForStat("steals");
+  const blocksData = getDataForStat("blocks");
+  const turnoversData = getDataForStat("turnovers");
 
   return (
     <>
       <div className="content">
-        {JSON.stringify(statsData)}
-        <Row>
-          <Col xs="12">
-            <ButtonGroup
-              className="btn-group-toggle float-right"
-              data-toggle="buttons"
-            >
-              <Button
-                color="primary"
-                id="0"
-                size="sm"
-                tag="label"
-                className={classNames("btn-simple", {
-                  active: bigChartData === "data1"
-                })}
-                onClick={() => setBigChartData("data1")}
+        {shouldHideSeasonToggle ? null : (
+          <Row>
+            <Col xs="12">
+              <ButtonGroup
+                className="btn-group-toggle float-right"
+                data-toggle="buttons"
               >
-                <input defaultChecked name="options" type="radio" />
-                <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                  This Season
-                </span>
-                <span className="d-block d-sm-none">
-                  <i className="tim-icons icon-single-02" />
-                </span>
-              </Button>
-              <Button
-                color="primary"
-                id="1"
-                size="sm"
-                tag="label"
-                className={classNames("btn-simple", {
-                  active: bigChartData === "data2"
-                })}
-                onClick={() => setBigChartData("data2")}
-              >
-                <input name="options" type="radio" />
-                <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                  All Time
-                </span>
-                <span className="d-block d-sm-none">
-                  <i className="tim-icons icon-gift-2" />
-                </span>
-              </Button>
-            </ButtonGroup>
-          </Col>
-        </Row>
+                <Button
+                  color="primary"
+                  id="0"
+                  size="sm"
+                  tag="label"
+                  className={classNames("btn-simple", {
+                    active: bigChartData === "data1"
+                  })}
+                  onClick={() => setBigChartData("data1")}
+                >
+                  <input defaultChecked name="options" type="radio" />
+                  <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                    This Season
+                  </span>
+                  <span className="d-block d-sm-none">
+                    <i className="tim-icons icon-single-02" />
+                  </span>
+                </Button>
+                <Button
+                  color="primary"
+                  id="1"
+                  size="sm"
+                  tag="label"
+                  className={classNames("btn-simple", {
+                    active: bigChartData === "data2"
+                  })}
+                  onClick={() => setBigChartData("data2")}
+                >
+                  <input name="options" type="radio" />
+                  <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
+                    All Time
+                  </span>
+                  <span className="d-block d-sm-none">
+                    <i className="tim-icons icon-gift-2" />
+                  </span>
+                </Button>
+              </ButtonGroup>
+            </Col>
+          </Row>
+        )}
         <Row>
           <Col xs="12">
             <h1>Stats</h1>
           </Col>
         </Row>
-
         <Row>
           <Col xs="12">
             <Card className="card-chart">
@@ -176,7 +185,8 @@ const Dashboard = () => {
                   <Col className="text-left" sm="6">
                     <h5 className="card-title">Wins</h5>
                     <CardTitle tag="h2">
-                      <i className="tim-icons icon-trophy text-primary" /> 32
+                      <i className="tim-icons icon-trophy text-primary" />{" "}
+                      {winsData.total}
                     </CardTitle>
                   </Col>
                 </Row>
@@ -184,7 +194,7 @@ const Dashboard = () => {
               <CardBody>
                 <div className="chart-area">
                   <Line
-                    data={chartExample1[bigChartData]}
+                    data={winsChartData(winsData.x, winsData.y).data}
                     options={orangeChart.options}
                   />
                 </div>
@@ -235,12 +245,17 @@ const Dashboard = () => {
                 <h5 className="card-title">Rebounds</h5>
                 <CardTitle tag="h3">
                   <i className="tim-icons icon-trash-simple text-warning" />{" "}
-                  763,215
+                  {reboundsData.total}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line data={purpleChart.data} options={purpleChart.options} />
+                  <Line
+                    data={
+                      reboundsChartData(reboundsData.x, reboundsData.y).data
+                    }
+                    options={purpleChart.options}
+                  />
                 </div>
               </CardBody>
             </Card>
@@ -250,12 +265,16 @@ const Dashboard = () => {
               <CardHeader>
                 <h5 className="card-title">Steals</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-lock-circle text-info" /> 763,215
+                  <i className="tim-icons icon-lock-circle text-info" />{" "}
+                  {stealsData.total}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line data={blueChart.data} options={blueChart.options} />
+                  <Line
+                    data={stealsChartData(stealsData.x, stealsData.y).data}
+                    options={blueChart.options}
+                  />
                 </div>
               </CardBody>
             </Card>
@@ -265,12 +284,16 @@ const Dashboard = () => {
               <CardHeader>
                 <h5 className="card-title">Blocks</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-app text-success" /> 763,215
+                  <i className="tim-icons icon-app text-success" />{" "}
+                  {blocksData.total}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line data={greenChart.data} options={greenChart.options} />
+                  <Line
+                    data={blocksChartData(blocksData.x, blocksData.y).data}
+                    options={greenChart.options}
+                  />
                 </div>
               </CardBody>
             </Card>
@@ -281,12 +304,17 @@ const Dashboard = () => {
                 <h5 className="card-title">Turnovers</h5>
                 <CardTitle tag="h3">
                   <i className="tim-icons icon-alert-circle-exc text-warning" />{" "}
-                  763,215
+                  {turnoversData.total}
                 </CardTitle>
               </CardHeader>
               <CardBody>
                 <div className="chart-area">
-                  <Line data={purpleChart.data} options={purpleChart.options} />
+                  <Line
+                    data={
+                      turnoversChartData(turnoversData.x, turnoversData.y).data
+                    }
+                    options={purpleChart.options}
+                  />
                 </div>
               </CardBody>
             </Card>
