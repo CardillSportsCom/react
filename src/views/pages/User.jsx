@@ -78,7 +78,7 @@ const User = () => {
                   <div className="block block-two" />
                   <div className="block block-three" />
                   <div className="block block-four" />
-                  {userData !== null ? profileCard : null}
+                  {userData.length !== 0 ? profileCard : null}
                 </div>
               </CardBody>
             </Card>

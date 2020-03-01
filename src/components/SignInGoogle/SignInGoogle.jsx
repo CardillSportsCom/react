@@ -25,9 +25,9 @@ class SignInGoogleBase extends Component {
     const { error } = this.state;
     return (
       <div className="card mb-3">
-        <div class="card bg-dark text-white">
+        <div className="card bg-dark text-white">
           <img alt="cardill header" src={require("assets/img/header.png")} />
-          <div class="card-img-overlay center">
+          <div className="card-img-overlay center">
             <form onSubmit={this.onSubmit}>
               <button type="submit">
                 <img
