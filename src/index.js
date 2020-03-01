@@ -17,14 +17,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import App from "components/App/App.jsx"
-
 import "assets/css/nucleo-icons.css";
 import "assets/scss/black-dashboard-pro-react.scss?v=1.0.0";
 import "assets/demo/demo.css";
 import "react-notification-alert/dist/animate.css";
 
 import Firebase, { FirebaseContext } from './components/Firebase';
+import App from "./components/App/App.jsx"
 
 ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
