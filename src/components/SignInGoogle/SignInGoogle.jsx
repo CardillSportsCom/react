@@ -44,13 +44,11 @@ class SignInGoogleBase extends Component {
   render() {
     const { error } = this.state;
     return (
-      <div className="card mb-3">
-        <div className="card bg-dark text-white">
-          <img
-            alt="cardill header"
-            src={require("./../../assets/img/header.png")}
-          />
-          <div className="card-img-overlay center">
+      <div style={{ textAlign: "center" }}>
+                  <img
+                  alt="cardill header"
+                  src={require("./../../assets/img/header.png")}
+                />
             <form onSubmit={this.onSubmit}>
               <button type="submit">
                 <img
@@ -61,8 +59,6 @@ class SignInGoogleBase extends Component {
               {error && <p>{error.message}</p>}
             </form>
           </div>
-        </div>
-      </div>
     );
   }
 }

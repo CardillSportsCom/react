@@ -14,15 +14,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from 'react';
+import React from "react";
 import AuthNavbar from "./../../components/Navbars/AuthNavbar.jsx";
 
 // reactstrap components
-import {
-  Container,
-  Col
-} from "reactstrap";
-import SignInGoogle from '../../components/SignInGoogle/SignInGoogle';
+import { Container, Row, Col, Jumbotron } from "reactstrap";
+import SignInGoogle from "../../components/SignInGoogle/SignInGoogle";
 
 class Login extends React.Component {
   componentDidMount() {
@@ -34,12 +31,15 @@ class Login extends React.Component {
   render() {
     return (
       <>
-       <AuthNavbar brandText={"Login Page"} />
+        <AuthNavbar brandText={"Login Page"} />
+
         <div className="content">
           <Container>
-            <Col className="ml-auto mr-auto" md="8">
-              <SignInGoogle/>
-            </Col>
+            <Row>
+              <Col>
+                <SignInGoogle />
+              </Col>
+            </Row>
           </Container>
         </div>
       </>
