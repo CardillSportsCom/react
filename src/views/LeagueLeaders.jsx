@@ -125,7 +125,7 @@ const LeagueLeaders = () => {
           spinner
         ) : (
           <Row>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Wins</CardTitle>
@@ -162,7 +162,7 @@ const LeagueLeaders = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Points</CardTitle>
@@ -199,7 +199,7 @@ const LeagueLeaders = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Assists</CardTitle>
@@ -236,7 +236,7 @@ const LeagueLeaders = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Rebounds</CardTitle>
@@ -273,7 +273,7 @@ const LeagueLeaders = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Steals</CardTitle>
@@ -310,7 +310,7 @@ const LeagueLeaders = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Blocks</CardTitle>
@@ -347,7 +347,7 @@ const LeagueLeaders = () => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs="3">
+            <Col md="3" xs="6">
               <Card>
                 <CardHeader>
                   <CardTitle tag="h4">Turnovers</CardTitle>
