@@ -14,9 +14,11 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+
+import { ClapSpinner } from "react-spinners-kit";
 
 // reactstrap components
 import {
@@ -28,26 +30,46 @@ import {
   CardTitle,
   Table,
   Row,
-  Col} from "reactstrap";
+  Col
+} from "reactstrap";
 
+const LeagueLeaders = () => {
+  const API_URL = "https://api-cardillsports-st.herokuapp.com";
+  const [bigChartData, setBigChartData] = useState("data1");
+  const [data, setData] = useState([]);
+  const [gameIndex, setGameIndex] = useState(0);
+  const [errors, setErrors] = useState(null);
 
+  const token = localStorage.getItem("idToken");
 
-class LeagueLeaders extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      bigChartData: "data1"
-    };
+  const shouldHideSeasons = true; //remove this when we have season;
+
+  async function fetchData() {
+    const res = await fetch(
+      API_URL + "/view/leagueLeaders/5ac6aaefe8da8276a88ffc07",
+      {
+        headers: new Headers({
+          Authorization: token
+        })
+      }
+    );
+
+    res
+      .json()
+      .then(res => setData(res.leagueLeaders))
+      .catch(err => setErrors(err));
   }
-  setBgChartData = name => {
-    this.setState({
-      bigChartData: name
-    });
-  };
-  render() {
-    return (
-      <>
-        <div className="content">
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const spinner = <ClapSpinner size={30} frontColor="#f88c1d" />;
+
+  return (
+    <>
+      <div className="content">
+        {shouldHideSeasons ? null : (
           <Row>
             <Col xs="12">
               <ButtonGroup
@@ -93,13 +115,16 @@ class LeagueLeaders extends React.Component {
               </ButtonGroup>
             </Col>
           </Row>
+        )}
+        <Row>
+          <Col xs="12">
+            <h1>League Leaders</h1>
+          </Col>
+        </Row>
+        {data.length === 0 ? (
+          spinner
+        ) : (
           <Row>
-            <Col xs="12">
-              <h1>League Leaders</h1>
-            </Col>
-          </Row>
-        
-       <Row>
             <Col xs="3">
               <Card>
                 <CardHeader>
@@ -110,66 +135,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.wins.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -187,66 +172,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.points.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -264,66 +209,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.assists.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -341,66 +246,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.rebounds.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -418,66 +283,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.steals.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -495,66 +320,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.blocks.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -572,66 +357,26 @@ class LeagueLeaders extends React.Component {
                     <Col md="12">
                       <Table responsive>
                         <tbody>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/US.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right">2.920</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/DE.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right">1.300</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/AU.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right">760</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/GB.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right">690</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <div className="flag">
-                                <img
-                                  alt="..."
-                                  src={require("./../assets/img/RO.png")}
-                                />
-                              </div>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right">600</td>
-                          </tr>
+                          {data.length === 0
+                            ? null
+                            : data.turnovers.map(stat => (
+                                <tr>
+                                  <td>
+                                    <div className="flag">
+                                      <img
+                                        style={{
+                                          width: "30px",
+                                          height: "30px"
+                                        }}
+                                        alt="..."
+                                        src={stat.imageUri}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>{stat.name}</td>
+                                  <td className="text-right">{stat.value}</td>
+                                </tr>
+                              ))}
                         </tbody>
                       </Table>
                     </Col>
@@ -639,12 +384,11 @@ class LeagueLeaders extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-          
           </Row>
-        </div>
-      </>
-    );
-  }
-}
+        )}
+      </div>
+    </>
+  );
+};
 
 export default LeagueLeaders;

@@ -32,14 +32,14 @@ const routes = [
     path: "/leaders",
     name: "League Leaders",
     rtlName: "لوحة القيادة",
-    icon: "tim-icons icon-chart-bar-32",
+    icon: "tim-icons icon-trophy",
     component: LeagueLeaders,
     layout: "/admin"
   },
   {
     name: "Box Score",
     rtlName: "الجداول",
-    icon: "tim-icons icon-puzzle-10",
+    icon: "tim-icons icon-chart-bar-32",
     path: "/box-score",
     component: BoxScore,
     layout: "/admin"
