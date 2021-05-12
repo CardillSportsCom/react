@@ -8,7 +8,7 @@
   },
   "homepage": "https://stats-dashboard.herokuapp.com/",
   "dependencies": {
-    "chart.js": "2.7.3",
+    "chart.js": "2.9.4",
     "classnames": "2.2.6",
     "compose": "^0.1.2",
     "firebase": "^7.9.2",
